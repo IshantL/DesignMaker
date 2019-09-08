@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Two from 'twojs-ts';
 
-class App extends Component(props) {
+class App extends Component {
 
   constructor(props){
+    super(props);
+
       this.state ={
         rotationSpeed: .05,
         xOffset: 0,
@@ -15,24 +17,13 @@ class App extends Component(props) {
       };
   }
 
-  getInitialState() {
-    return {
-      rotationSpeed: .05,
-      xOffset: 0,
-      yOffset: 0,
-      mouseDragAngle: 0,
-      isMouseDown: false,
-      isRectActive: false,
-    };
-  }
-
   componentWillMount() {
     const two = new Two({
       type: Two.Types[this.props.type],
       width: 320,
       height: 320,
     });
-
+    debugger;
     this.two = two;
   };
 
@@ -130,9 +121,12 @@ class App extends Component(props) {
   };
 
   resize() {
+    debugger;
+    const width = this.width;
+    const height = this.height;
     this.setState({
-      right: this.two.width,
-      bottom: this.two.height
+      right: width,
+      bottom: height
     });
   };
 
